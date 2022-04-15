@@ -11,17 +11,8 @@ for(i = 0; i< 100; i++){
 }
 
 zhmi.addEventListener('click', zhmy1);
-
-// zhmi.addEventListener('mouseout', zhmy1);
-// function zhmy(){  
-//     let value = Math.floor(Math.random()*arr2.length)
-//     let rand = arr2[value];
-//     let rand1 = arr2[value];
-//     zhmi.style.left = rand+"vw";
-//     zhmi.style.top =  rand1+"vh";
-// }
-
 zhmi.addEventListener('mouseover', zhmy1);
+
 function zhmy1(){  
     let value = Math.floor(Math.random()*arr1.length)
     let value2 = Math.floor(Math.random()*arr2.length)
@@ -33,9 +24,42 @@ function zhmy1(){
 
 let counter = document.querySelector('.use1');
 counter.addEventListener('click', sum);
+
 let num = 0;
 function sum(){
     let counter1 =  document.querySelector('.counter');
     num ++;
     counter1.innerHTML = num;
+
+    let onScore = document.querySelectorAll(".onscore-audio")
+    let sound = onScore[Math.floor(Math.random() * 4)];
+    sound.play();
+    sound.volume = 0.3;
 }
+
+
+let fullArea = document.querySelector('.stiki');
+// fullArea.addEventListener('click', sum1);
+
+fullArea.onclick = sum1;                //<-------
+async function sum1(){
+    fullArea.onclick = null;            //<-------
+
+    let onMiss = document.querySelectorAll(".onmiss-audio")
+    let sound = onMiss[Math.floor(Math.random() * 20)];     //<------- Чтобы звук можно было убавить
+    sound.play();               //<-------
+    sound.volume = 0.3;         //<-------
+
+    setTimeout(function(){      //<------- ЗАПРЕЩАЮ ТЕБЕ КЛИКАТЬ
+        // sound.play();
+        fullArea.onclick = sum1;        //<-------
+    }, 4000);           //<-------
+    
+    // await sleep(4000);
+}
+
+
+// function sleep(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
+// sum1();
