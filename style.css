@@ -5,7 +5,7 @@
 }
 body{
     display: block;
-    /* overflow: hidden; */
+    overflow: hidden;
     background-image: url(batrider.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,27 +15,36 @@ body{
 button{
     user-select: none;
 }
+.fadeout{
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(23, 23, 23, 0.3);
+}
 .use{
     width: 160px;
     height: 100px;
+    border: 2px solid #2b543d;
     margin: 0 auto;
     position: absolute;
     transition: .3s;
     background: url(1bffcc3fd_320x200.png);
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 4;
-    border: 2px solid powderblue;
+    z-index: 1;
 }
 .stiki{
     width: 100vw;
     height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 .use1{
     color: aliceblue;
     font-size: 30px;
     cursor: pointer;
-    z-index: 15;
 }
 .counter{
     display: flex;
@@ -43,13 +52,99 @@ button{
     align-items: center;
     position: absolute;
     top: 20px;
-    left: 50vw;
-    width: 50px;
-    height: 50px;
-    border: 3px solid rgb(121 169 127);
+    left: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border: 7px groove rgb(226, 147, 22);
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-    font-size: 25px;
+    font-size: 2.5rem;
     user-select: none;
     z-index: 1;
+}
+.modal-wrapper{
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+.modal-shadow{
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(23, 23, 23, 0.7);
+    transition: ease-in-out .5s;
+    z-index: 0;
+}
+.modal{
+    position: absolute;
+    transform: translateY(80vh);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 500px;
+    height: 250px;
+    background-color: white;
+    margin: 0 auto;
+    border: rgb(255, 255, 255) 2px solid;
+    transition: .5s;
+    z-index: 3;
+}
+.modal__text{
+    color: #232323;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin: auto 0;
+}
+.modal__button{
+    width: 100%;
+    height: 75px;
+    font-size: 1.75rem;
+    color: #232323;
+    background-color: rgb(187, 194, 191);
+    border: 2px white solid;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+}
+
+.modal__button:hover{
+    color: white;
+    background-color: rgb(190,50,10);
+}
+a .modal__button{
+    background-color: rgb(226, 148, 22);
+}
+a .modal__button:hover{
+    color: white;
+    background-color: rgb(190,50,10);
+}
+.modal__button:active{
+    background-color: rgb(255, 67, 15);
+}
+a .modal__button:active{
+    background-color: rgb(255, 67, 15);
+}
+
+.plus-one{
+    opacity: 0;
+    position: absolute;
+    /* top: 0;
+    right: 0;
+    left: 0; */
+    font-size: 2.5rem;
+    color: rgb(226, 148, 22);
+    text-shadow: -0.5px 0 white, 0 0.5px white, 0.5px 0 white, 0 -0.5px white;
+    transition: ease-in-out .3s;
+
 }
